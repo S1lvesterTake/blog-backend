@@ -1,0 +1,40 @@
+1. because initially nodejs created as experiment doing asynchronous process on a single thread could provide more performance
+and scalability under typical web loads than the typical thread-based implementation when the application isn’t doing CPU 
+intensive stuff and can run thousands more concurrent connections than Apache or IIS or other thread-based servers.
+
+2. The node js use architecture single threaded event loop model which is inspired by javascript event-based model with javascript callback
+mechanism. Because of this node js can handle more concurent request from client.
+
+3. We can use mmultiple thread in node js by using modul worker_thread in Node.js v10.5.0 and higher.
+
+4. Node stream is fundamental concept that power node js to handle reading/writing file, network communication or any kind end to end
+information exchange in an efficient way. By stream the data with read or write piece by piece and this way is have major advantages like memory
+efficieny and time efficiency.
+
+5. readFile will load whole file into memory otherwise createReadStream read entire file in chucks of specified size. 
+
+6.  - use template literal and embed schema parts of schema as string
+ - modularizing schema by its entity
+ 
+7. we can add custom scalar type but need to define how that type should serialized, deserialized, and validated.
+
+example  : 
+1. define a custome scalar 
+`scalar Date`
+2. Define custome logic scalar that will define How the scalar's value is represented in your backend , how the value's back-end representation is serialized to a JSON-compatible type, how the JSON-compatible representation is deserialized to the back-end representation
+ 
+8. Loader is generic utility for laod schema and document from different sources. There are many loader in Graphql like GraphQL file loader, json file loader, code file loader and URL loader.
+
+9. - advantage : make data more clearer, less schema 
+   - disadvantage : need more time to normalize, create a lot schema,  in some condition need to use join action.
+
+10.  step to doing mongodb replication : 
+  - need MongoDB installed on three or more nodes.
+  - Each of the nodes in the cluster will need to be able to communicate with the others over a standard port (27017 by default)
+  - Additionally, each replica set member needs to have a hostname that is resolvable from the others
+  
+  detail action : 
+   - Start each member of the replica set with the appropriate options.
+   - Connect a mongo shell to one of the mongod instances.
+   - Initiate the replica set.
+   - Ensure that the replica set has a primary.
