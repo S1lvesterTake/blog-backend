@@ -5,8 +5,10 @@ const mongoose = require('mongoose');
 const { graphqlHTTP } = require('express-graphql');
 const graphqlSchema = require('./src/graphql/schema');
 const resolvers = require('./src/graphql/resolver');
-
+const cors = require('cors')
 const app = express();
+
+app.use(cors())
 
 app.use(
   '/graphql',
